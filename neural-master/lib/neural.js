@@ -72,7 +72,7 @@ Network.prototype.process = function(inputs) {
 Network.prototype.errorThreshold = 0.00001
 
 // Number of iterations on each training
-Network.prototype.trainingIterations = 500000
+Network.prototype.trainingIterations = 500000;
 
 // Rate at which the network learns in each iteration
 Network.prototype.learningRate = 0.3
