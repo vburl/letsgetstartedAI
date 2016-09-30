@@ -1,7 +1,7 @@
 var math = require('./math')
 
 function Network() {
-  this.layers = []
+  this.layers = [];
 }
 
 function Layer(numNeurons, numInputs) {//
@@ -75,18 +75,26 @@ Network.prototype.errorThreshold = 0.00001
 Network.prototype.trainingIterations = 500000;
 
 // Rate at which the network learns in each iteration
-Network.prototype.learningRate = 0.3
-
+Network.prototype.learningRate = 0.3;
+/*
+    [  [0, 0],  [0]  ],
+    [  [0, 1],  [1]  ],
+    [  [1, 0],  [1]  ],
+    [  [1, 1],  [0]  ]
+   */
 Network.prototype.train = function(examples) {
-  var outputLayer = this.layers[this.layers.length - 1]
-
+  var outputLayer = this.layers[this.layers.length - 1];
+  console.log('outputLayer: '+outputLayer);
+/*
+      for lop for number of training iterations
+*/
   for (var it = 0; it < this.trainingIterations; it++) {
-    
+    //for number of examples
     for (var e = 0; e < examples.length; e++) {
-      var inputs = examples[e][0]
-      var targets = examples[e][1]
+      var inputs = examples[e][0];
+      var targets = examples[e][1];
 
-      var outputs = this.process(inputs)
+      var outputs = this.process(inputs);
 
       for (var i = 0; i < outputLayer.neurons.length; i++) {
         var neuron = outputLayer.neurons[i]
